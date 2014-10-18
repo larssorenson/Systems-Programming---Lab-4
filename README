@@ -1,0 +1,27 @@
+
+//
+//	Lab 4
+//
+
+//
+//	Part 1
+//
+
+The output in step 3 is a combination between the three threads outputting the characters A, B, and C. Since the threads are created first, they being outputting mere moments before the main thread.
+Step 5 is outputting only C because the main thread enters an infinite while loop to output the character C, and never reaches the lines to create the threads.
+
+//
+//	Part 3
+//
+						System  (Kernel) Time 	User Time		Real Time
+pthread_mutex (count)				sys	0m1.180s	user	0m1.556s	real	0m1.376s
+spin lock (count_spin with thr_yield)		sys	0m0.348s	user	0m0.688s	real	0m0.523s
+spin_lock (count_spin without thr_yield) 	sys	0m0.000s	user	0m2.580s	real	0m1.297s
+
+1. The pthread_yield allows the thread to give up processing power if it cannot run a particular part of code due 
+	to a spin_lock. This allows the thread that is locking the code to run with more power and end sooner, 
+	making the overall times much faster. Time spent by CPU in user mode when thread_yield is not taking place 
+	is larger because of this, the thread is purely sitting and waiting.
+	
+2. The CPU is spending a lot of time in kernel mode when it is locking and unlocking the mutex, as well as putting 
+	the thread into and pulling it out of a waiting state. 
