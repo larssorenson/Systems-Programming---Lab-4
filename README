@@ -7,7 +7,7 @@
 //	Part 1
 //
 
-The output in step 3 is a combination between the three threads outputting the characters A, B, and C. Since the threads are created first, they being outputting mere moments before the main thread.
+The output in step 3 is a combination between the three threads outputting the characters A, B, and C. Since the threads are created first, they begin outputting mere moments before the main thread.
 Step 5 is outputting only C because the main thread enters an infinite while loop to output the character C, and never reaches the lines to create the threads.
 
 //
